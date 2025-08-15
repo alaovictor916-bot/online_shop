@@ -1,13 +1,13 @@
 # online Shop Django Project 
 
 # To set up with pipenv run
-pipenv install
-pipenv shell
-python manage.py migrate
-python manage.py runserver
+1) pipenv install -----
+2) pipenv shell -----
+3) python manage.py migrate ------
+4)  python manage.py runserver
 
 
 # To set up without pipenv 
-pip install -r requirements.txt
-python manage.py migrate
-python manage.py runserver
+1)  pip install -r requirements.txt -------
+2)  python manage.py migrate ----------
+3)  python manage.py runserver
