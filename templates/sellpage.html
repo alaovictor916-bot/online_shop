@@ -1,0 +1,11 @@
+{%  extends 'base.html' %}
+{% block content %}
+<form action="." enctype="multipart/form-data" method="POST">{% csrf_token %}
+<p>{{form.as_p}}</p>
+<input type= 'submit' value='save'>
+</form >
+
+<p>------------------------------------------------------------</p>
+<p>--------------------------------------------------------------</p>
+<button onclick="window.location.href='../products/'">home</button>
+{% endblock %}

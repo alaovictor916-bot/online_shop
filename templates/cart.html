@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block content %}
+<head>
+<style>
+
+img{
+    height: 370px;
+    width:320px
+}
+
+.text{
+    font-size: 20px;
+}   
+        
+        
+        
+</style>
+
+</head>
+<div class='table'></div>
+<table>
+    
+{% for item in totalpl %}
+
+<tr>
+<div class="image">
+    <img src="{{item.image.url}}"  alt = "image of a product" >
+</div>
+    <p>{{item.title}}</p>
+    <p>QUATITY AVAILABLE : {{item.quantity_avail}}</p>
+<p>PRICE : ₦{{item.comma_price}}</p>
+ <p>AMOUNT OF ITEM IN CART : {{item.quantity_cart}}</p>
+ <button onclick="{{item.cart_increase}}">+</button>
+ <button onclick="'{{item.cart_decrease}}'">- </button>
+
+
+
+<button onclick = "window.location.href='{{ product.get_absolute_url }}'"> details</button>
+
+
+</tr>
+
+{% endfor %}
+<div class="grand">
+
+<tr> -------------------------------------------------------------------------------------- TOTAL NUMBER OF ITEMS IN CART : {{nrows}}</tr>
+<td style="font-size: 80px;"><td><h>  --------------------------------------------------------------------------------TOTAL COST IS :    ₦ {{big}}.00</h></td></td>
+</div>
+</table>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,151 @@
+
+<head>
+    <style>
+        img{
+            height: 1000px;
+            width: 500px;
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 40px;
+        }
+        table{
+            boarder: 10px;
+        }
+        .container{
+            display: grid;
+           grid-template-rows: repeat( 5 , 590px); 
+          grid-template-columns: repeat( 2, 550px); 
+            
+             height: 305px;
+            
+        }
+        .image-card{
+            height:520px;
+            width:530px;
+            
+            
+        }
+        .title{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 25px;
+        }
+        .price{
+          font-family: Arial, Helvetica, sans-serif;
+            font-size: 25px;  
+            color: red;
+        }
+        img{
+            width:400px;
+            height: 440px;
+            object-fit: cover;
+        }
+        button{
+            width:80px ;
+            height:25px;
+            font-size: 15px;
+            font: bold;
+            background-color:blue;
+            
+        }
+        .quantity{
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 10px;
+        }
+        .sell_button{
+            height : 90px;
+            width: 80px;
+
+        }
+
+    </style>
+</head>
+<body>
+    <form action="." method="POST">{% csrf_token %}
+    <p>{{form.as_p}}</p>
+     <input type = 'submit' value = 'Search'>
+    </form >
+  <div class ="sell_button">  <button onclick="window.location.href='../sell/'">sell </button>
+    </div>
+<div class="container">
+
+{% for product in products %}
+<div class="image-card">
+    <img src="{{product.image.url}}"  alt = "image of a product" >
+
+    <div class = 'title'> {{product.title}}</div>
+   <div class = 'quantity'> <p>quantity available : {{product.quantity_avail}}</p></div>
+<div class="price"> ₦ {{product.comma_price}}</div>
+
+
+<button onclick = "window.location.href='{{ product.get_absolute_url }}'"> checkout</button>
+
+</div>
+{% endfor %}
+
+{% for producte in productBegin %}
+<div class="image-card">
+    <img src="{{producte.image.url}}"  alt = "image of a product" >
+
+    <div class = 'title'> {{producte.title}}</div>
+<div class="price"> ₦ {{producte.comma_price}}</div>
+
+
+<button onclick = "window.location.href='{{ producte.get_absolute_url }}'"> checkout</button>
+
+</div>
+{% endfor %}
+
+{% for product9 in productEnd %}
+<div class="image-card">
+    <img src="{{product9.image.url}}"  alt = "image of a product" >
+
+    <div class = 'title'> {{product9.title}}</div>
+<div class="price"> ₦ {{product9.comma_price}}</div>
+
+<script>let url1 ='{{ product9.get_absolute_url }}' ;</script>
+<button onclick = "window.location.href='{{ product9.get_absolute_url }}'"> checkout</button>
+
+</div>
+{% endfor %}
+
+{% for item in querry_set_list%}
+{% for sub_item in item %}
+
+<div class="image-card">
+    <img src="{{sub_item.image.url}}"  alt = "image of a product" >
+
+    <div class = 'title'> {{sub_item.title}}</div>
+<div class="price"> ₦ {{sub_item.comma_price}}</div>
+
+
+
+<button onclick = "window.location.href='{{ sub_item.get_absolute_url }}' "> checkout</button>
+
+
+</div>
+
+
+{% endfor %}
+{% endfor %}
+
+{% for prod in ultimate %}
+<div class="image-card">
+    <img src="{{prod.image.url}}"  alt = "image of a product" >
+
+    <div class = 'title'> {{prod.title}}</div>
+<div class="price"> ₦ {{prod.comma_price}}</div>
+
+
+<button onclick = "window.location.href='{{ prod.get_absolute_url }}'"> checkout</button>
+
+</div>
+{% endfor %}
+
+
+
+</div>
+
+
+</body>
+
